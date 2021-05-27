@@ -10,34 +10,10 @@
     <div class="nav-bar"></div>
 
     <div id="app">
-        <div class="product">
-        <div class="product-image">
-            <img :src="image" alt="green-Socks">
+        <div class="cart">
+            <p>Cart({{cart.length}})</p>
         </div>
-
-        <div class="product-info">
-            <h1>{{product}}</h1>
-            <!-- <p>{{discription}}</p> -->
-            <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
-
-            <ul>
-                <!-- it also can use to iterate projects. -->
-                <li v-for="detail in details"> {{detail}}</li>
-            </ul>
-
-            <div v-for="variant in variants" :key="variant.variantId">
-                <p @mouseover="updateProduct(variant.variantImage)">{{variant.variantColor}}</p>
-            </div>
-
-            <button v-on:click="addToCart">Add to cart</button>
-
-            <div class="cart">
-                <p>Cart({{cart}})</p>
-            </div>
-        </div>
-        
-    </div>
+        <product :premium = "premium" @add-to-cart="updateCart"></product>
     </div>
     
     
